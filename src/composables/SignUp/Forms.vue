@@ -1,5 +1,10 @@
 <template>
-  <Form :validation-schema="schema" @submit="onSubmit" ref="formRef">
+  <Form
+    :validation-schema="schema"
+    @submit="onSubmit"
+    ref="formRef"
+    class="grid grid-cols-2 gap-14 mx-auto"
+  >
     <Input v-bind="getInputProps('firstName')" />
     <Input v-bind="getInputProps('lastName')" />
     <Input v-bind="getInputProps('username')" />
@@ -7,8 +12,13 @@
     <Input v-bind="getInputProps('password')" />
     <Input v-bind="getInputProps('confirmPassword')" />
     <Input v-bind="getInputProps('phone')" />
-    <button class="" type="submit">sdfsf</button>
-    {{ formRef }}
+    <Input v-bind="getInputProps('birthday')" />
+    <button
+      type="submit"
+      class="py-2.5 px-5 me-2 mb-2 text-md font-medium text-gray-900 bg-green-400 rounded-lg border border-gray-200 hover:bg-green-200 col-span-2"
+    >
+      Alternative
+    </button>
   </Form>
 </template>
 <script lang="ts">

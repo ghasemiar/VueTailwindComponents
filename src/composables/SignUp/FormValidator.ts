@@ -1,5 +1,6 @@
 import { validationHelper } from "./../../helper/ValidationHelpr";
 import * as Yup from "yup";
+
 export const useUserValidator = () => {
   const phoneRegex = new RegExp(
     "^(09|۰۹)[0-9|۰-۹]{3}[0-9|۰-۹]{3}[0-9|۰-۹]{3}$"
@@ -15,6 +16,7 @@ export const useUserValidator = () => {
       type: "password",
       name: "confirmPassword",
     },
+    birthday: { lable: "birthday", type: "date", name: "birthday" },
     phone: { label: "phone", type: "tel", name: "phone" },
   });
   const schema = Yup.object({
@@ -27,6 +29,7 @@ export const useUserValidator = () => {
       [Yup.ref("password"), undefined],
       "Passwords must match"
     ),
+    birthday: Yup.date().min(new Date(2000, 1, 1)).max(new Date()),
     phone: Yup.string().matches(phoneRegex, "Phone number is not valid"),
   });
   const schemaCreate = schema;

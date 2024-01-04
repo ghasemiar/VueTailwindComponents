@@ -1,5 +1,5 @@
 <template>
-  <div class="col-span-2">
+  <div :class="size">
     <label
       :for="name"
       class="block text-sm font-medium leading-6 text-gray-900"
@@ -27,6 +27,7 @@ const props = defineProps({
   name: { type: String, default: "" },
   type: { type: String, default: "" },
   placeholder: { type: String, default: "" },
+  size: { type: String, default: "" },
   modelValue: { type: String, default: "" },
 });
 

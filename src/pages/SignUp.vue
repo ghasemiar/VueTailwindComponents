@@ -1,8 +1,6 @@
 <template>
   <div class="container mt-[100px] w-[70%] mx-auto">
-    <div class="grid grid-cols-2 gap-4 mx-auto">
-      <Forms :schema="schema" @submit="submit" />
-    </div>
+    <Forms :schema="schema" @submit="submit" />
   </div>
 </template>
 <script setup lang="ts">
