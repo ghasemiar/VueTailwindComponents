@@ -13,6 +13,7 @@
     <Input v-bind="getInputProps('confirmPassword')" />
     <Input v-bind="getInputProps('phone')" />
     <Input v-bind="getInputProps('birthday')" />
+    <Select v-bind="getInputProps('country')" />
     <button
       type="submit"
       class="py-2.5 px-5 me-2 mb-2 text-md font-medium text-gray-900 bg-green-400 rounded-lg border border-gray-200 hover:bg-green-200 col-span-2"
@@ -40,7 +41,8 @@ export default defineComponent({
   components: {
     Input,
     Form,
-  },
+    Select
+},
   setup(props, { emit }) {
     const { onSubmit, formRef } = useFormLogic(
       { onDataFetched: toRef(props, "onDataFetched") },

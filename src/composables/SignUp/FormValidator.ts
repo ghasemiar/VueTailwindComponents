@@ -16,8 +16,9 @@ export const useUserValidator = () => {
       type: "password",
       name: "confirmPassword",
     },
-    birthday: { lable: "birthday", type: "date", name: "birthday" },
     phone: { label: "phone", type: "tel", name: "phone" },
+    birthday: { lable: "birthday", type: "date", name: "birthday" },
+    country : {lable: "select your contry",name:"country"}
   });
   const schema = Yup.object({
     firstName: Yup.string().required(),
@@ -31,6 +32,10 @@ export const useUserValidator = () => {
     ),
     birthday: Yup.date().min(new Date(2000, 1, 1)).max(new Date()),
     phone: Yup.string().matches(phoneRegex, "Phone number is not valid"),
+    country: Yup.object().shape({
+      key:Yup.string(),
+      value:Yup.string()
+    })
   });
   const schemaCreate = schema;
   return { getInputProps, schemaCreate, schema };
